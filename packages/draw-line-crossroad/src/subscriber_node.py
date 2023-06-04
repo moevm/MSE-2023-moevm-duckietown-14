@@ -3,9 +3,13 @@
 import os
 import rospy
 import cv2
+
 from duckietown.dtros import DTROS, NodeType
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+
+from LaneDetector.IntersectionController import *
+from LaneDetector.EdgeKernels import *
 
 class MySubscriberNode(DTROS):
 
@@ -13,6 +17,8 @@ class MySubscriberNode(DTROS):
         # initialize the DTROS parent class
         super(MySubscriberNode, self).__init__(node_name=node_name, node_type=NodeType.GENERIC)
         # construct publisher
+        self.pub = rospy.Publisher('~image_drawing_line', Image)
+        # construct subscriber
         self.sub = rospy.Subscriber('image', Image, self.callback)
         self.bridge = CvBridge()
 
@@ -20,6 +26,10 @@ class MySubscriberNode(DTROS):
         rospy.loginfo(ros_img.header)
         cv_image = self.bridge.imgmsg_to_cv2(ros_img, "bgr8")
         #cv2.imshow('Frame',cv_image)
+
+        IC = IntersectionController(scharr)
+        IC.renderImage(cv_image)
+        
 
 if __name__ == '__main__':
     # create the node
