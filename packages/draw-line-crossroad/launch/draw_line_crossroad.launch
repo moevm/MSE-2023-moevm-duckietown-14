@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="draw-line-crossroad" type="virt_camera.py" name="virt_camera" output="screen"/>
+  <node pkg="draw-line-crossroad" type="subscriber_node.py" name="subscriber_node"  output="screen"/>
+
+</launch>
