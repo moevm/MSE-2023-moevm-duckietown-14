@@ -30,7 +30,7 @@ class IntersectionController:
         # 8th [Search for the lane lines] frame -> frame
         lane_lines = self.MLD.LaneLinesSearch(filtered_frame.copy(), plot=False, save=False)
         # 9th [Region highlihting; will be replaced by line drawing] frame -> None (will return frame)
-        self.MLD.HihglightRegion(lane_lines, orig_frame=frame.copy(), save=True, plot=True)
+        return self.MLD.HihglightRegion(lane_lines, orig_frame=frame.copy(), save=True, plot=True)
 
 
     def ROIupdate(self, new_ROI=None):

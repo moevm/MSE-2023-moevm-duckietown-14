@@ -46,8 +46,8 @@ class MySubscriberNode(DTROS):
         cv_image = self.bridge.imgmsg_to_cv2(ros_img, "bgr8")
 
 
-        #IC = IntersectionController(scharr)
-        #IC.renderImage(cv_image)
+        IC = IntersectionController(scharr)
+        self.pub.publish(IC.renderImage(cv_image))
         
 
 if __name__ == '__main__':

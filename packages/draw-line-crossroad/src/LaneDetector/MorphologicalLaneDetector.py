@@ -188,7 +188,8 @@ class MorphologicalLaneDetector:
                             if  pr(x) < y and pl(x) < y:
                                 orig_frame[y][x][1] = 150
                 if save:
-                    cv2.imwrite("image_out.jpg", orig_frame)
+                    #cv2.imwrite("image_out.jpg", orig_frame)
+                    return orig_frame
             cv2.imshow("",orig_frame)
 
         
