@@ -47,7 +47,7 @@ class MySubscriberNode(DTROS):
 
 
         IC = IntersectionController(scharr)
-        self.pub.publish(IC.renderImage(cv_image))
+        self.pub.publish(self.bridge.cv2_to_imgmsg(IC.renderImage(cv_image), "bgr8"))
         
 
 if __name__ == '__main__':
