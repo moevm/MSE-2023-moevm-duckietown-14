@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="draw-line-crossroad" type="my_publisher_node.py" name="my_publisher_node" output="screen"/>
+  <node pkg="my_packag<launch>
+
+  <node pkg="my_package" type="my_publisher_node.py" name="my_publisher_node" output="screen"/>
+  <node pkg="my_package" type="my_subscriber_node.py" name="my_subscriber_node"  output="screen"/>
+
+</launch>e" type="my_subscriber_node.py" name="my_subscriber_node"  output="screen"/>
+
+</launch>
